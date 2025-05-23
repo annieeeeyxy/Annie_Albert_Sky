@@ -4,11 +4,14 @@ import java.awt.*;
 public class ScorePanel extends JPanel {
     public ScorePanel(DefaultListModel<String> model) {
         setLayout(new BorderLayout());
-        JList<String> recordList = new JList<>(model);
-        recordList.setFont(new Font("Consolas", Font.PLAIN, 14));
-        JScrollPane scroll = new JScrollPane(recordList);
-        scroll.setPreferredSize(new Dimension(300, RobotBattle.PANEL_H));
-        scroll.setBorder(BorderFactory.createTitledBorder("Score Records"));
-        add(scroll, BorderLayout.CENTER);
+        JLabel title = new JLabel("Score Records");
+        title.setHorizontalAlignment(JLabel.CENTER);
+        add(title, BorderLayout.NORTH);
+
+        JList<String> list = new JList<String>(model);
+        list.setFont(new Font("Consolas", Font.PLAIN, 14));
+        JScrollPane pane = new JScrollPane(list);
+        pane.setPreferredSize(new Dimension(300, RobotBattle.PANEL_HEIGHT));
+        add(pane, BorderLayout.CENTER);
     }
 }
